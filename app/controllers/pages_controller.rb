@@ -1,15 +1,19 @@
 class PagesController < ApplicationController
+
   def index
     @posts = Post.all
   end
 
   def checker
+    params.require(:post).permit(:checked)
 
-    if @posts.checked
-      @posts.checked = false
+    if @post.checked
+      @post = false
     else
-      @posts.checked = true
+      @post = true
     end
+
+
 
   end
 
